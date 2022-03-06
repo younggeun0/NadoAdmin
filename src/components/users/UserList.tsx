@@ -2,7 +2,7 @@ import React from 'react';
 import { Datagrid, EmailField, List, TextField } from 'react-admin';
 import MyUrlField from './MyURLField';
 
-export default function UserList(props) {
+function UserList(props) {
   return (
     <List {...props}>
       <Datagrid rowClick="edit">
@@ -16,3 +16,5 @@ export default function UserList(props) {
     </List>
   );
 }
+
+export default UserList;
