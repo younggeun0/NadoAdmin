@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Edit, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+import {
+  Edit,
+  ReferenceInput,
+  SelectInput,
+  SimpleForm,
+  TextInput,
+} from 'react-admin';
 
 function PostTitle({ record }) {
   return <span>Post {record ? `${record.title}` : ''}</span>;

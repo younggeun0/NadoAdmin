@@ -3,5 +3,5 @@
   "parser": "typescript",
   "semi": true,
   "useTabs": false,
-  "printWidth": 120
+  "printWidth": 80
 }

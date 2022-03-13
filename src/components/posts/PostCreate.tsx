@@ -1,5 +1,11 @@
 import React from 'react';
-import { Create, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'react-admin';
+import {
+  Create,
+  ReferenceInput,
+  SelectInput,
+  SimpleForm,
+  TextInput,
+} from 'react-admin';
 
 function PostCreate(props) {
   return (
