@@ -1,23 +1,25 @@
-import React, { useReducer } from 'react';
+import { PinDropSharp } from '@material-ui/icons';
+import React, { useContext, useEffect, useReducer } from 'react';
 import {
   Datagrid,
   List,
+  ListFilterContext,
   ReferenceField,
   ReferenceInput,
   SelectInput,
   TextField,
   TextInput,
   useListContext,
+  useListController,
+  useListFilterContext,
 } from 'react-admin';
-// import DynamicFilters from './DynamicFilters';
+import { type1Choices, type2Choices, type3Choices } from '../../types';
 
 const reducer = (state, action) => {
   // eslint-disable-next-line no-debugger
   debugger;
-  // TODO, x버튼으로 필터 제거 시 동작을 알 수 없음
-  // 다 붙여놓고 hideFilter로 제어하는게 좋을 듯 함(showFilter, hideFilter)
   switch (action.type) {
-    case 'UserNameSelected':
+    case 'UserNameSelected': {
       if (action.value === '') {
         const newFilterList = state.filterList.filter((filter) => {
           const { name } = filter.props;
@@ -25,6 +27,13 @@ const reducer = (state, action) => {
         });
         return { filterList: newFilterList };
       }
+
+      const emailFilter = state.filterList.filter((filter) => {
+        const { name } = filter.props;
+        return name === 'email';
+      });
+      if (emailFilter.length) return state;
+
       return {
         filterList: state.filterList.concat(
           <ReferenceInput
@@ -43,7 +52,8 @@ const reducer = (state, action) => {
           </ReferenceInput>
         ),
       };
-    case 'EmailSelected':
+    }
+    case 'EmailSelected': {
       if (action.value === '') {
         const newFilterList = state.filterList.filter((filter) => {
           const { name } = filter.props;
@@ -51,6 +61,13 @@ const reducer = (state, action) => {
         });
         return { filterList: newFilterList };
       }
+
+      const addressFilter = state.filterList.filter((filter) => {
+        const { name } = filter.props;
+        return name === 'address';
+      });
+      if (addressFilter.length) return state;
+
       return {
         filterList: state.filterList.concat(
           <ReferenceInput
@@ -69,14 +86,24 @@ const reducer = (state, action) => {
           </ReferenceInput>
         ),
       };
-    case 'AddressSelected':
+    }
+    case 'AddressSelected': {
       return state;
+    }
     default:
       return state;
   }
 };
 
+// const defaultFilters = [
+//   <TextInput label="Search" source="q" alwaysOn />,
+//   <SelectInput name="test1" source="id" choices={type1Choices} />,
+//   <SelectInput name="test2" source="title" choices={type2Choices} disabled />,
+//   <SelectInput name="test3" source="body" choices={type3Choices} disabled />,
+// ];
+
 function PostList(props) {
+  const { displayedFilters, hideFilter } = useListController(props);
   const [state, dispatch] = useReducer(reducer, {
     filterList: [
       <TextInput label="Search" source="q" alwaysOn />,
@@ -98,10 +125,34 @@ function PostList(props) {
     ],
   });
 
-  const { filterList } = state;
-  const { filterValues, displayedFilters } = useListContext();
+  let { filterList } = state;
+  // const { filterValues, displayedFilters } = useListController(props);
+  // const context = useContext(ListFilterContext);
   // eslint-disable-next-line no-console
-  console.log(filterValues, displayedFilters);
+  console.log(displayedFilters);
+
+  // 필터는 표시 안됐는데, filterList에 있는 경우 제거
+  if (!displayedFilters.userId) {
+    filterList = filterList.filter((filter) => {
+      const { name } = filter.props;
+      return name !== 'email' && name !== 'address';
+    });
+    hideFilter('email');
+    hideFilter('address');
+  } else if (!displayedFilters.email) {
+    filterList = filterList.filter((filter) => {
+      const { name } = filter.props;
+      return name !== 'address';
+    });
+    hideFilter('address');
+  }
+
+  // if (!displayedFilters.) {
+  //   hideFilter('title');
+  //   hideFilter('body');
+  // } else if (!displayedFilters.title) {
+  //   hideFilter('body');
+  // }
 
   return (
     <List {...props} filters={filterList}>
