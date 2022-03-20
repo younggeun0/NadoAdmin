@@ -1,19 +1,14 @@
-import { PinDropSharp } from '@material-ui/icons';
-import React, { useContext, useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import {
   Datagrid,
   List,
-  ListFilterContext,
   ReferenceField,
   ReferenceInput,
   SelectInput,
   TextField,
   TextInput,
-  useListContext,
   useListController,
-  useListFilterContext,
 } from 'react-admin';
-import { type1Choices, type2Choices, type3Choices } from '../../types';
 
 const reducer = (state, action) => {
   // eslint-disable-next-line no-debugger
