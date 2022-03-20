@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
-import LottoGenerator from './lotto/LottoGenerator';
+import LotteryNumGenerator from './lottery/LotteryNumGenerator';
 
 export default [
-  <Route exact path="/lotto" render={() => <LottoGenerator />} />,
+  <Route exact path="/lottery" render={() => <LotteryNumGenerator />} />,
 ];

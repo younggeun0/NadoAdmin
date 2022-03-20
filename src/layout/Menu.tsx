@@ -6,13 +6,13 @@ function Menu(props: MenuProps) {
   return (
     <div>
       {' '}
-      <DashboardMenuItem />
+      {/* <DashboardMenuItem /> */}
       <MenuItemLink
         to={{
-          pathname: '/lotto',
+          pathname: '/lottery',
           state: { _scrollToTop: true },
         }}
-        primaryText="Lotto"
+        primaryText="복권 번호 생성기"
         leftIcon={<AttachMoneyIcon />}
       />
     </div>
