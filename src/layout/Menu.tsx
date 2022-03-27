@@ -6,7 +6,7 @@ import { DashboardMenuItem, MenuItemLink, MenuProps } from 'react-admin';
 function Menu(props: MenuProps) {
     return (
         <div>
-            {/* <DashboardMenuItem /> */}
+            <DashboardMenuItem />
             <MenuItemLink
                 to={{
                     pathname: '/mui_components',
