@@ -15,7 +15,7 @@ function Dashboard(props: any) {
             <Grid item>
                 <Card>
                     <CardHeader
-                        title="🤖 react-admin을 연습하기 위한 토이 프로젝트"
+                        title="🤖 react-admin 연습용 토이 프로젝트"
                         subheader="사실 이렇게 쓰는게 맞는지 잘 모르겠어요"
                     />
                     <CardMedia
