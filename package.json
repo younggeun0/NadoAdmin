@@ -12,6 +12,8 @@
     "@mui/styled-engine": "^5.4.4",
     "@types/react-router": "^5.1.18",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
     "prop-types": "^15.8.1",
     "ra-data-fakerest": "^3.9.0",
     "ra-data-graphql-simple": "^3.9.0",

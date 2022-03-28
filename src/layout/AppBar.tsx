@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 function CustomAppBar(props: any) {
     const classes = useStyles();
     return (
-        <AppBar {...props} elevation={1} userMenu={false} color="transparent">
+        <AppBar {...props} elevation={1} userMenu={false} color="default">
             <Typography
                 variant="h6"
                 color="inherit"
