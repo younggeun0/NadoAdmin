@@ -28,7 +28,7 @@ function LotteryNumGenerator(props: any) {
     const [gameCnt, setGameCnt] = useState(5);
     const classes = useStyles();
 
-    const handleChange = useCallback((event) => {
+    const handleChange = useCallback(event => {
         const newCnt: number = +event.target.value;
         setGameCnt(newCnt);
     }, []);
