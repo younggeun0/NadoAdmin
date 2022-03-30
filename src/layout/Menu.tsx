@@ -29,7 +29,7 @@ function Menu(props: MenuProps) {
                     pathname: '/news',
                     state: { _scrollToTop: true },
                 }}
-                primaryText="뉴스"
+                primaryText="뉴스 API"
                 leftIcon={<NewspaperIcon />}
             />
         </div>

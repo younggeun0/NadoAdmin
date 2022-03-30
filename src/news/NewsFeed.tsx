@@ -1,4 +1,6 @@
 /* eslint-disable react/button-has-type */
+import { ClassNames } from '@emotion/react';
+import { makeStyles } from '@material-ui/core';
 import {
     Box,
     Card,
@@ -10,6 +12,82 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Button, TopToolbar } from 'react-admin';
+
+const useStyles = makeStyles({
+    alignCard: {
+        justifyContent: 'space-around',
+    },
+    btnCategory: {
+        paddingLeft: 0,
+        marginRight: '1rem',
+    },
+});
+
+const NewsFeedTopToolbar = ({ onClick }: any) => {
+    const classes = useStyles();
+
+    return (
+        <TopToolbar>
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('all');
+                }}
+                label="전체보기"
+            />
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('business');
+                }}
+                label="비즈니스"
+            />
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('entertainment');
+                }}
+                label="엔터테인먼트"
+            />
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('health');
+                }}
+                label="건강"
+            />
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('science');
+                }}
+                label="과학"
+            />
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('technology');
+                }}
+                label="기술"
+            />
+            <Button
+                variant="contained"
+                className={classes.btnCategory}
+                onClick={() => {
+                    onClick('sports');
+                }}
+                label="스포츠"
+            />
+        </TopToolbar>
+    );
+};
 
 const NewsItem = ({ article }: any) => {
     console.log(article);
@@ -39,14 +117,17 @@ const NewsItem = ({ article }: any) => {
 const NewsFeed = () => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [category, setCategory] = useState('all');
+    const classes = useStyles();
 
     useEffect(() => {
         setLoading(true);
 
         const fetchData = async () => {
             try {
+                const query = category === 'all' ? '' : `&category=${category}`;
                 const response = await axios.get(
-                    `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+                    `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
                 );
 
                 console.log('response', response);
@@ -58,17 +139,16 @@ const NewsFeed = () => {
         };
 
         fetchData();
-    }, []);
+    }, [category]);
 
     if (loading) {
         return (
-            <Box
-                sx={{
-                    display: 'flex',
-                }}
-            >
-                {'대기중...'}
-            </Box>
+            <>
+                <NewsFeedTopToolbar onClick={setCategory} />
+                <Card>
+                    <CardContent>{'대기중...'}</CardContent>
+                </Card>
+            </>
         );
     }
 
@@ -77,11 +157,18 @@ const NewsFeed = () => {
     }
 
     return (
-        <Grid container>
-            {articles.map((article: any) => (
-                <NewsItem article={article} />
-            ))}
-        </Grid>
+        <>
+            <NewsFeedTopToolbar onClick={setCategory} />
+            <Card>
+                <CardContent>
+                    <Grid container className={classes.alignCard}>
+                        {articles.map((article: any) => (
+                            <NewsItem article={article} />
+                        ))}
+                    </Grid>
+                </CardContent>
+            </Card>
+        </>
     );
 };
 
