@@ -14,15 +14,21 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, TopToolbar } from 'react-admin';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     alignCard: {
         justifyContent: 'space-around',
     },
     btnCategory: {
-        paddingLeft: 0,
         marginRight: '1rem',
+        backgroundColor: theme.palette.success.light,
+        '&:hover': {
+            backgroundColor: theme.palette.success.dark,
+        },
+        '& span': {
+            paddingLeft: 0,
+        },
     },
-});
+}));
 
 const NewsFeedTopToolbar = ({ onClick }: any) => {
     const classes = useStyles();

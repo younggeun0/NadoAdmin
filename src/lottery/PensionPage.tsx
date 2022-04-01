@@ -23,7 +23,7 @@ function PensionPage() {
     return (
         <Card sx={{ display: 'flex', width: '100%' }}>
             <CardContent sx={{ width: '100%' }}>
-                <Typography variant="h5">💰 부자되세요</Typography>
+                <Typography variant="h5">💰 연금복권 행운의 번호</Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                     {pickedNumbers.map((v, i) => (
                         // eslint-disable-next-line react/no-array-index-key

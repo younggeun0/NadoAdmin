@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     toptoolbar: {
         alignItems: 'center',
     },
+    gridContainer: {
+        width: '100%',
+    },
 });
 
 function LotteryNumGenerator(props: any) {
@@ -71,9 +74,11 @@ function LotteryNumGenerator(props: any) {
             </TopToolbar>
             <Grid container>
                 {mode.type === 'lotto' ? (
-                    <Card>
+                    <Card className={classes.gridContainer}>
                         <CardContent>
-                            <Typography variant="h5">💰 부자되세요</Typography>
+                            <Typography variant="h5">
+                                💰 로또 6/45 행운의 번호
+                            </Typography>
                             {new Array(gameCnt).fill(null).map((v, i) => (
                                 <LottoPage key={i} />
                             ))}
