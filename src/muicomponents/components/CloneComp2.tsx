@@ -1,20 +1,9 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import React from 'react';
-import {
-    Box,
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    Grid,
-    Typography,
-} from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@material-ui/core';
 
 const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
+    <Box component="span" sx={{ display: 'inline-block', mx: '2px' }}>
         .
     </Box>
 );
@@ -23,19 +12,13 @@ function CloneComp2() {
     return (
         <Card variant="outlined">
             <CardContent>
-                <Typography
-                    sx={{ fontSize: 14 }}
-                    color="text.secondary"
-                    gutterBottom
-                >
+                <Typography style={{ fontSize: 14 }} gutterBottom>
                     Word of the Day
                 </Typography>
                 <Typography>
                     be{bull}nev{bull}o{bull}lent
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
-                </Typography>
+                <Typography style={{ marginBottom: 1.5 }}>adjective</Typography>
                 <Typography variant="body2">
                     well meaning and kindly.
                     <br />

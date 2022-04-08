@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import { Box, Card, CardContent } from '@mui/material';
+import { Box, Card, CardContent } from '@material-ui/core';
 import React from 'react';
 import { GetLotto645Number } from './numberBuilder';
 
@@ -25,7 +25,7 @@ function LottoPage() {
 
     return (
         <Card
-            sx={{
+            style={{
                 display: 'inline-flex',
                 margin: '0.2em',
                 minWidth: '222px',
@@ -35,14 +35,7 @@ function LottoPage() {
             <CardContent>
                 {new Array(45).fill(null).map((v, i) => {
                     return (
-                        <Box
-                            key={i}
-                            sx={
-                                pickedNumbers.includes(i)
-                                    ? pickedStyle
-                                    : defaultStyle
-                            }
-                        >
+                        <Box key={i} sx={pickedNumbers.includes(i) ? pickedStyle : defaultStyle}>
                             {i + 1}
                         </Box>
                     );

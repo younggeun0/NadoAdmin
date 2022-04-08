@@ -1,15 +1,6 @@
 /* eslint-disable react/button-has-type */
 import { ClassNames } from '@emotion/react';
-import { makeStyles } from '@material-ui/core';
-import {
-    Box,
-    Card,
-    CardActionArea,
-    CardContent,
-    CardHeader,
-    CardMedia,
-    Grid,
-} from '@mui/material';
+import { makeStyles, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, TopToolbar } from 'react-admin';
@@ -101,7 +92,7 @@ const NewsItem = ({ article }: any) => {
 
     return (
         <Card
-            sx={{
+            style={{
                 marginBottom: '1rem',
                 marginRight: '1rem',
                 maxWidth: '300px',
@@ -111,6 +102,11 @@ const NewsItem = ({ article }: any) => {
             <CardActionArea
                 onClick={() => {
                     location.href = url;
+                }}
+                style={{
+                    height: '100%',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
                 }}
             >
                 {urlToImage && <CardMedia component="img" image={urlToImage} />}

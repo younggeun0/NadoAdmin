@@ -1,7 +1,11 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { ThemeStateProvider } from './ThemeStateProvider';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <ThemeStateProvider>
+        <App />
+    </ThemeStateProvider>,
+    document.getElementById('root')
+);

@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography } from '@material-ui/core';
 import React from 'react';
 import { GetPensionLotteryNumber } from './numberBuilder';
 
@@ -21,8 +21,8 @@ function PensionPage() {
     };
 
     return (
-        <Card sx={{ display: 'flex', width: '100%' }}>
-            <CardContent sx={{ width: '100%' }}>
+        <Card style={{ display: 'flex', width: '100%' }}>
+            <CardContent style={{ width: '100%' }}>
                 <Typography variant="h5">💰 연금복권 행운의 번호</Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                     {pickedNumbers.map((v, i) => (
