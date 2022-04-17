@@ -1,21 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import React, { Fragment, useCallback, useState } from 'react';
-import { Button, SelectField, SelectInput, TopToolbar } from 'react-admin';
+import React, { useCallback, useState } from 'react';
+import { Button, TopToolbar } from 'react-admin';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import { Box, Card, CardContent, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Box, Card, CardContent, Grid, MenuItem, TextField, Typography } from '@mui/material';
 import LottoPage from './LottoPage';
 import PensionPage from './PensionPage';
 
-// const useStyles = makeStyles({
-//     toptoolbar: {
-//         alignItems: 'center',
-//     },
-//     gridContainer: {
-//         width: '100%',
-//     },
-// });
-
-function LotteryNumGenerator(props: any) {
+function LotteryNumGenerator() {
     const [mode, setMode] = useState({ type: 'lotto' });
     const [gameCnt, setGameCnt] = useState(5);
 
@@ -24,7 +15,6 @@ function LotteryNumGenerator(props: any) {
         setGameCnt(newCnt);
     }, []);
 
-    // TODO, 게임 수 조절 기능
     return (
         <Box>
             <TopToolbar>

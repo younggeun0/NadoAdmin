@@ -1,10 +1,10 @@
 import { IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Box, Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardHeader, CardMedia, Grid } from '@mui/material';
 import React, { useCallback } from 'react';
 import { useNotify } from 'react-admin';
 
-function Dashboard(props: any) {
+function Dashboard() {
     const notify = useNotify();
     const handleMoreVertIConClick = useCallback(() => {
         notify(`뭘 기대한거죠..`);

@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import React from 'react';
 import CloneComp2 from './components/CloneComp2';
 
-function MUIComponents(props: any) {
+function MUIComponents() {
     return (
         <Grid container spacing={2}>
             <Grid item>

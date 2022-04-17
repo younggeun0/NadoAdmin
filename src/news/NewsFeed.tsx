@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
-import { ClassNames } from '@emotion/react';
-import { makeStyles, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid } from '@mui/material';
+import { Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, TopToolbar } from 'react-admin';

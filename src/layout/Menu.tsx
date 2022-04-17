@@ -4,7 +4,7 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import { DashboardMenuItem, MenuItemLink, MenuProps } from 'react-admin';
 
-function Menu(props: MenuProps) {
+function Menu() {
     return (
         <div>
             <DashboardMenuItem />
