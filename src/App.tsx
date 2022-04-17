@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Admin, Resource, defaultTheme, DataProvider, ListGuesser } from 'react-admin';
+import { Admin, Resource, DataProvider, ListGuesser, CustomRoutes } from 'react-admin';
 import Layout from './layout/Layout';
-import routes from './routes';
 import Dashboard from './dashboard/Dashboard';
 import buildGraphQLProvider from 'ra-data-graphql';
 import { buildQuery } from 'ra-data-graphql-simple';
-import { useThemeState } from './ThemeStateProvider';
-import { darkTheme, lightTheme } from './themes';
-
-// const theme = {
-//     ...defaultTheme,
-//     sidebar: {
-//         width: 250, // The default value is 240
-//         closedWidth: 55, // The default value is 55
-//     },
-// };
+import { lightTheme } from './themes';
+import { BrowserRouter } from 'react-router-dom';
+import LotteryNumGenerator from './lottery/LotteryNumGenerator';
+import MUIComponents from './muicomponents/MUIComponents';
+import NewsFeed from './news/NewsFeed';
+import { Route } from 'react-router';
 
 function App() {
     const [dataProvider, setDataProvider] = useState<DataProvider>();
-    const { theme } = useThemeState();
-
-    console.log(dataProvider);
 
     useEffect(() => {
         buildGraphQLProvider({
@@ -34,16 +26,23 @@ function App() {
     }
 
     return (
-        <Admin
-            dataProvider={dataProvider}
-            layout={Layout}
-            customRoutes={routes}
-            dashboard={Dashboard}
-            loginPage={false}
-            theme={theme === 'dark' ? darkTheme : lightTheme}
-        >
-            <Resource name="FakeData" list={ListGuesser} />
-        </Admin>
+        <BrowserRouter>
+            <Admin
+                dataProvider={dataProvider}
+                layout={Layout}
+                // customRoutes={routes}
+                dashboard={Dashboard}
+                loginPage={false}
+                theme={lightTheme}
+            >
+                <Resource name="FakeData" list={ListGuesser} />
+                <CustomRoutes>
+                    <Route path="/lottery" element={<LotteryNumGenerator />} />,
+                    <Route path="/mui_components" element={<MUIComponents />} />,
+                    <Route path="/news" element={<NewsFeed />} />,
+                </CustomRoutes>
+            </Admin>
+        </BrowserRouter>
     );
 }
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import React from 'react';
-import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@material-ui/core';
+import { Box, Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 
 const bull = (
     <Box component="span" sx={{ display: 'inline-block', mx: '2px' }}>

@@ -1,28 +1,29 @@
 /* eslint-disable react/button-has-type */
 import { ClassNames } from '@emotion/react';
-import { makeStyles, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid } from '@material-ui/core';
+import { makeStyles, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, TopToolbar } from 'react-admin';
+import useClasses from '../hooks/useClasses';
 
-const useStyles = makeStyles(theme => ({
+const styles = {
     alignCard: {
         justifyContent: 'space-around',
     },
     btnCategory: {
         marginRight: '1rem',
-        backgroundColor: theme.palette.success.light,
+        backgroundColor: 'springgreen',
         '&:hover': {
-            backgroundColor: theme.palette.success.dark,
+            backgroundColor: 'darkgrey',
         },
         '& span': {
             paddingLeft: 0,
         },
     },
-}));
+};
 
 const NewsFeedTopToolbar = ({ onClick }: any) => {
-    const classes = useStyles();
+    const classes = useClasses(styles);
 
     return (
         <TopToolbar>
@@ -120,7 +121,7 @@ const NewsFeed = () => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(false);
     const [category, setCategory] = useState('all');
-    const classes = useStyles();
+    const classes = useClasses(styles);
 
     useEffect(() => {
         setLoading(true);

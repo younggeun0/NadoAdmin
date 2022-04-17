@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import { Box, Card, CardContent } from '@material-ui/core';
+import { Box, Card, CardContent } from '@mui/material';
 import React from 'react';
 import { GetLotto645Number } from './numberBuilder';
 

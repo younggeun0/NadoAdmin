@@ -2,24 +2,22 @@
 import React, { Fragment, useCallback, useState } from 'react';
 import { Button, SelectField, SelectInput, TopToolbar } from 'react-admin';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Card, CardContent, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@material-ui/core';
+import { Box, Card, CardContent, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import LottoPage from './LottoPage';
 import PensionPage from './PensionPage';
 
-const useStyles = makeStyles({
-    toptoolbar: {
-        alignItems: 'center',
-    },
-    gridContainer: {
-        width: '100%',
-    },
-});
+// const useStyles = makeStyles({
+//     toptoolbar: {
+//         alignItems: 'center',
+//     },
+//     gridContainer: {
+//         width: '100%',
+//     },
+// });
 
 function LotteryNumGenerator(props: any) {
     const [mode, setMode] = useState({ type: 'lotto' });
     const [gameCnt, setGameCnt] = useState(5);
-    const classes = useStyles();
 
     const handleChange = useCallback(event => {
         const newCnt: number = +event.target.value;
@@ -29,7 +27,7 @@ function LotteryNumGenerator(props: any) {
     // TODO, 게임 수 조절 기능
     return (
         <Box>
-            <TopToolbar className={classes.toptoolbar}>
+            <TopToolbar>
                 {mode.type === 'lotto' && (
                     <TextField
                         select
@@ -65,7 +63,7 @@ function LotteryNumGenerator(props: any) {
             </TopToolbar>
             <Grid container>
                 {mode.type === 'lotto' ? (
-                    <Card className={classes.gridContainer}>
+                    <Card>
                         <CardContent>
                             <Typography variant="h5">💰 로또 6/45 행운의 번호</Typography>
                             {new Array(gameCnt).fill(null).map((v, i) => (

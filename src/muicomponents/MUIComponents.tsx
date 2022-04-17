@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-curly-brace-presence */
-import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import React from 'react';
 import CloneComp2 from './components/CloneComp2';
 

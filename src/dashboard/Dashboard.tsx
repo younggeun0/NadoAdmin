@@ -1,6 +1,6 @@
-import { IconButton } from '@material-ui/core';
+import { IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Box, Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@material-ui/core';
+import { Box, Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@mui/material';
 import React, { useCallback } from 'react';
 import { useNotify } from 'react-admin';
 

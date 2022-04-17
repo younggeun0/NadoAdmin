@@ -9,26 +9,20 @@ function Menu(props: MenuProps) {
         <div>
             <DashboardMenuItem />
             <MenuItemLink
-                to={{
-                    pathname: '/mui_components',
-                    state: { _scrollToTop: true },
-                }}
+                to="/mui_components"
+                state={{ _scrollToTop: true }}
                 primaryText="MUI 컴포넌트"
                 leftIcon={<ViewQuiltIcon />}
             />
             <MenuItemLink
-                to={{
-                    pathname: '/lottery',
-                    state: { _scrollToTop: true },
-                }}
+                to="/lottery"
+                state={{ _scrollToTop: true }}
                 primaryText="복권 번호 생성기"
                 leftIcon={<AttachMoneyIcon />}
             />
             <MenuItemLink
-                to={{
-                    pathname: '/news',
-                    state: { _scrollToTop: true },
-                }}
+                to="/news"
+                state={{ _scrollToTop: true }}
                 primaryText="뉴스 API"
                 leftIcon={<NewspaperIcon />}
             />
